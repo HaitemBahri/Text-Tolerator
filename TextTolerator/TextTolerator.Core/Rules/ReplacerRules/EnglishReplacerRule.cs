@@ -13,7 +13,8 @@ namespace TextTolerator.Core.Rules.ReplacerRules
             new ReplacerRuleValue('s', 'z', CharPosition.Mid),
             new ReplacerRuleValue('z', 's', CharPosition.Mid),
 
-
+            new ReplacerRuleValue('S', 'Z', CharPosition.Mid),
+            new ReplacerRuleValue('Z', 'S', CharPosition.Mid),
         };
     }
 }
