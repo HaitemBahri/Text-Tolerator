@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TextTolerator.Core.Rules.ReplacerRules;
+using TextTolerator.Core.Rules;
 
 namespace TextTolerator.Core.Tests.CharPositionsTests
 {

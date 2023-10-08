@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace TextTolerator.Core.Rules.ReplacerRules
+namespace TextTolerator.Core.Rules
 {
     [Flags]
     public enum CharPosition

@@ -5,6 +5,6 @@ namespace TextTolerator.Core.TextTolerators
 {
     public interface ITextTolerator
     {
-        public Result GetTextToleratorResult(string originalText);
+        public List<string> GetTextToleratorResult(string originalText);
     }
 }

@@ -12,15 +12,15 @@ namespace TextTolerator.Core.TextTolerators
             _textToleratorRuleProvider = textToleratorRuleProvider;
         }
 
-        public Result GetTextToleratorResult(string originalText)
+        public List<string> GetTextToleratorResult(string originalText)
         {
             var rules = _textToleratorRuleProvider.GetRules();
 
-            var result = new Result(originalText);
+            var result = new List<string>();
 
             foreach(var rule in rules)
             {
-                rule.ProcessText(result);
+                result.AddRange(rule.ProcessText(originalText));
             }
 
             return result;

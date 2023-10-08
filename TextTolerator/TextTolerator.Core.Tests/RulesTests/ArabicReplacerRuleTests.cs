@@ -12,34 +12,37 @@ public class ArabicReplacerRuleTests
 
     }
 
-    public static TheoryData<string, string[], string> ShouldReturnCorrectResultTheoryData => new()
+    public static TheoryData<string, List<string>, string> ShouldReturnCorrectResultTheoryData => new()
     {
-        {"أم", new string[]{ "أم", "ام" }, "(أ) - Start"},
-        {"مأم", new string[]{ "مأم", "مام" }, "(أ) - Mid"},
-        {"تمأ", new string[]{ "تمأ", "تما" }, "(أ) - End"},
+        {"أم", new List<string>(){ "أم", "ام" }, "(أ) - Start"},
+        {"مأم", new List<string>(){ "مأم", "مام" }, "(أ) - Mid"},
+        {"نمأ", new List<string>(){ "نما", "نمأ" }, "(أ) - End"},
 
-        {"إتأم", new string[]{ "إتأم", "اتأم", "إتام", "اتام" }, "(أ) - Start, Mid"},
-        {"أتمأ", new string[]{ "أتمأ", "اتمأ", "أتما",  "اتما" }, "(أ) - Start, End"},
-        {"تأمأ", new string[]{ "تأمأ", "تامأ", "تأما",  "تاما" }, "(أ) - Mid, End"},
+        {"إنأم", new List<string>(){ "إنأم", "انأم", "إنام", "انام" }, "(أ) - Start, Mid"},
+        {"أنمأ", new List<string>(){ "أنمأ", "انمأ", "أنما",  "انما" }, "(أ) - Start, End"},
+        {"نأمأ", new List<string>(){ "نأمأ", "نامأ", "نأما",  "ناما" }, "(أ) - Mid, End"},
 
-        {"أتإمأ", new string[]{ "أتإمأ",  "اتإمأ", "أتامأ", "اتامأ",  "أتإما", "اتإما", "أتاما",  "اتاما" }, "(أ) -Start, Mid, End"},
+        {"أنإمأ", new List<string>(){ "أنإمأ",  "انإمأ", "أنامأ", "انامأ",  "أنإما", "انإما", "أناما",  "اناما" }, "(أ) -Start, Mid, End"},
 
-        {"ىابس", new string[]{ "ىابس" }, "(ى) - Start"},
-        {"حرىا", new string[]{ "حرىا" }, "(ى) - Mid"},
-        {"بحرى", new string[]{ "بحرى", "بحري" }, "(ى) - End"},
+        {"ىابس", new List<string>(){ "ىابس" }, "(ى) - Start"},
+        {"حرىا", new List<string>(){ "حرىا" }, "(ى) - Mid"},
+        {"بحرى", new List<string>(){ "بحرى", "بحري" }, "(ى) - End"},
 
+        {"أمة", new List<string>(){ "أمة", "أمه", "امة", "امه",  }, "(أ) - Start (ة) - End"},
+        {"مأمة", new List<string>(){ "مامه", "مأمه", "مامة", "مأمة"}, "(أ) - Mid (ة) - End"},
+
+        {"ضبظ", new List<string>(){ "ظبظ", "ضبظ", "ظبض", "ضبض"}, "(ض) - Start (ظ) - End"},
 
     };
 
     [Theory]
     [MemberData(nameof(ShouldReturnCorrectResultTheoryData))]
-    public void ShouldReturnCorrectResult(string input, string[] expectedResult, string testDataName)
+    public void ShouldReturnCorrectResult(string input, List<string> expectedResult, string testDataName)
     {
-        var result = new Result(input);
+        var actualResult = _sut.ProcessText(input);
 
-        _sut.ProcessText(result);
-
-        var actualResult = result.GetResultArray().ToArray();
+        expectedResult.Sort();
+        actualResult.Sort();
 
         Assert.Equal(expectedResult, actualResult);
     }

@@ -1,7 +1,4 @@
-﻿
-using TextTolerator.Core.Rules.ReplacerRules;
-
-namespace TextTolerator.Core.Rules.CleanerRules
+﻿namespace TextTolerator.Core.Rules.CleanerRules
 {
     public class CleanerRuleValue
     {
