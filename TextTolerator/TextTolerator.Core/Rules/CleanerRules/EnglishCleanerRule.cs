@@ -10,10 +10,10 @@ namespace TextTolerator.Core.Rules.CleanerRules
     {
         protected override List<CleanerRuleValue> CleanerRuleValues => new()
         {
-            new CleanerRuleValue('\'', CharPosition.Mid | CharPosition.End),
+            new CleanerRuleValue("\'", CharPosition.Mid | CharPosition.End),
 
-            new CleanerRuleValue('g', CharPosition.End),
-            new CleanerRuleValue('G', CharPosition.End),
+            new CleanerRuleValue("g", CharPosition.End),
+            new CleanerRuleValue("G", CharPosition.End),
         };
     }
 }

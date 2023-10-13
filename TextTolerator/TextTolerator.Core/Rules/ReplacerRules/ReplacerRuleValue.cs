@@ -2,11 +2,11 @@
 {
     public class ReplacerRuleValue
     {
-        public char ReplaceFrom { get; }
-        public char ReplaceBy { get; }
+        public string ReplaceFrom { get; }
+        public string ReplaceBy { get; }
         public CharPosition Position { get; }
 
-        public ReplacerRuleValue(char replaceFrom, char replaceBy, CharPosition position)
+        public ReplacerRuleValue(string replaceFrom, string replaceBy, CharPosition position)
         {
             ReplaceFrom = replaceFrom;
             ReplaceBy = replaceBy;

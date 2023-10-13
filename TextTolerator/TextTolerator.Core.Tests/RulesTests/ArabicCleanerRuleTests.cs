@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Results;
-using TextTolerator.Core.Rules.CleanerRules;
+﻿using TextTolerator.Core.Rules.CleanerRules;
 
 namespace TextTolerator.Core.Tests.RulesTests
 {
@@ -22,7 +15,7 @@ namespace TextTolerator.Core.Tests.RulesTests
         {
             {"بَاب", new List<string>(){ "بَاب", "باب" }, "(بَ) - Start"},
             {"باٌب", new List<string>(){ "باٌب", "باب" }, "(اٌ) - Mid"},
-            {"ُباب", new List<string>(){ "ُباب", "باب" }, "(بُ) - End"},
+            {"بابُ", new List<string>(){ "بابُ", "باب" }, "(بُ) - End"},
 
             {"بَاَب", new List<string>(){ "بَاَب", "باَب" , "بَاب" , "باب" }, "() - Start, Mid"},
             {"بَابَ", new List<string>(){ "بَابَ", "بابَ" , "بَاب" , "باب" }, "() - Start, End"},

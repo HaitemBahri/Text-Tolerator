@@ -5,19 +5,19 @@
         protected override List<CleanerRuleValue> CleanerRuleValues =>
             new List<CleanerRuleValue>()
             {
-                new CleanerRuleValue('َ', CharPosition.Start | CharPosition.Mid | CharPosition.End),
-                new CleanerRuleValue('ً', CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("َ", CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("ً", CharPosition.Start | CharPosition.Mid | CharPosition.End),
 
-                new CleanerRuleValue('ُ', CharPosition.Start | CharPosition.Mid | CharPosition.End),
-                new CleanerRuleValue('ٌ', CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("ُ", CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("ٌ", CharPosition.Start | CharPosition.Mid | CharPosition.End),
 
-                new CleanerRuleValue('ِ', CharPosition.Start | CharPosition.Mid | CharPosition.End),
-                new CleanerRuleValue('ٍ', CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("ِ", CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("ٍ", CharPosition.Start | CharPosition.Mid | CharPosition.End),
 
-                new CleanerRuleValue('ّ', CharPosition.Start | CharPosition.Mid | CharPosition.End),
-                new CleanerRuleValue('ْ', CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("ّ", CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("ْ", CharPosition.Start | CharPosition.Mid | CharPosition.End),
 
-                new CleanerRuleValue('ـ', CharPosition.Start | CharPosition.Mid | CharPosition.End),
+                new CleanerRuleValue("ـ", CharPosition.Start | CharPosition.Mid | CharPosition.End),
 
             };
     }

@@ -1,4 +1,6 @@
-﻿namespace TextTolerator.Core.Rules.ReplacerRules;
+﻿using System.Text.RegularExpressions;
+
+namespace TextTolerator.Core.Rules.ReplacerRules;
 
 public abstract class ReplacerRuleBase : IRule
 {
@@ -6,24 +8,32 @@ public abstract class ReplacerRuleBase : IRule
 
     public List<string> ProcessText(string inputText)
     {
-        List<KeyValuePair<int, char>> mask = new();
+        SortedDictionary<int, KeyValuePair<string, string>> mask = new();
 
-        for (int i = 0; i < inputText.Length; i++)
+        foreach (var ruleValue in ReplacerRuleValues)
         {
-            foreach (var ruleValue in ReplacerRuleValues)
-            {
-                if (inputText[i] == ruleValue.ReplaceFrom)
-                {
-                    if ((ruleValue.Position.IsStart() && i == 0) ||
-                        (ruleValue.Position.IsMid() && (i > 0 && i < inputText.Length - 1)) ||
-                        (ruleValue.Position.IsEnd() && i == inputText.Length - 1))
-                    {
-                        mask.Add(new KeyValuePair<int, char>(i, ruleValue.ReplaceBy));
+            string replaceFrom = ruleValue.ReplaceFrom;
+            string replaceBy = ruleValue.ReplaceBy;
 
+            if (inputText.Contains(replaceFrom))
+            {
+                for (int index = 0; ; index += replaceFrom.Length)
+                {
+                    index = inputText.IndexOf(replaceFrom, index, StringComparison.Ordinal);
+
+                    if (index == -1)
+                        break;
+
+                    if ((ruleValue.Position.IsStart() && index == 0) ||
+                        (ruleValue.Position.IsMid() && (index > 0 && index < inputText.Length - 1)) ||
+                        (ruleValue.Position.IsEnd() && index == inputText.Length - 1))
+                    {
+                        mask.Add(index, new KeyValuePair<string, string>(replaceFrom, replaceBy));
                     }
                 }
             }
         }
+
 
         int numberOfCharsToBeReplaced = mask.Count;
 
@@ -35,14 +45,14 @@ public abstract class ReplacerRuleBase : IRule
         {
             string currentResult = new(inputText);
 
-            for (int j = 0; j < numberOfCharsToBeReplaced; j++)
+            for (int j = numberOfCharsToBeReplaced - 1; j >= 0; j--)
             {
                 if (((i >> j) & 1) == 1)
                 {
-                    int currentIndex = mask[j].Key;
+                    int currentIndex = mask.ElementAt(j).Key;
 
-                    currentResult = currentResult.Remove(currentIndex, 1)
-                        .Insert(currentIndex, mask[j].Value.ToString());
+                    currentResult = currentResult.Remove(currentIndex, mask.ElementAt(j).Value.Key.Length)
+                        .Insert(currentIndex, mask.ElementAt(j).Value.Value.ToString());
                 }
             }
 

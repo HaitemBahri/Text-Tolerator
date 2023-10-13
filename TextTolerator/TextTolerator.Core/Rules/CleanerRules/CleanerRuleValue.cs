@@ -2,10 +2,10 @@
 {
     public class CleanerRuleValue
     {
-        public char ReplaceFrom { get; }
+        public string ReplaceFrom { get; }
         public CharPosition Position { get; }
 
-        public CleanerRuleValue(char replaceFrom, CharPosition position)
+        public CleanerRuleValue(string replaceFrom, CharPosition position)
         {
             ReplaceFrom = replaceFrom;
             Position = position;

@@ -1,4 +1,6 @@
-﻿namespace TextTolerator.Core.Rules.CleanerRules
+﻿using TextTolerator.Core.Rules.ReplacerRules;
+
+namespace TextTolerator.Core.Rules.CleanerRules
 {
     public abstract class CleanerRuleBase : IRule
     {
@@ -6,22 +8,26 @@
 
         public List<string> ProcessText(string inputText)
         {
-            List<KeyValuePair<int, char>> mask = new();
+            SortedDictionary<int, string> mask = new();
 
-            char placeHolder = '0';
-
-            for (int i = 0; i < inputText.Length; i++)
+            foreach (var ruleValue in CleanerRuleValues)
             {
-                foreach (var ruleValue in CleanerRuleValues)
-                {
-                    if (inputText[i] == ruleValue.ReplaceFrom)
-                    {
-                        if ((ruleValue.Position.IsStart() && i == 0) ||
-                            (ruleValue.Position.IsMid() && (i > 0 && i < inputText.Length - 1)) ||
-                            (ruleValue.Position.IsEnd() && i == inputText.Length - 1))
-                        {
-                            mask.Add(new KeyValuePair<int, char>(i, placeHolder));
+                string replaceFrom = ruleValue.ReplaceFrom;
 
+                if (inputText.Contains(replaceFrom))
+                {
+                    for (int index = 0; ; index += replaceFrom.Length)
+                    {
+                        index = inputText.IndexOf(replaceFrom, index, StringComparison.Ordinal);
+
+                        if (index == -1)
+                            break;
+
+                        if ((ruleValue.Position.IsStart() && index == 0) ||
+                            (ruleValue.Position.IsMid() && (index > 0 && index < inputText.Length - 1)) ||
+                            (ruleValue.Position.IsEnd() && index == inputText.Length - 1))
+                        {
+                            mask.Add(index, replaceFrom);
                         }
                     }
                 }
@@ -41,9 +47,9 @@
                 {
                     if (((i >> j) & 1) == 1)
                     {
-                        int currentIndex = mask[j].Key;
+                        int currentIndex = mask.ElementAt(j).Key;   
 
-                        currentResult = currentResult.Remove(currentIndex, 1);
+                        currentResult = currentResult.Remove(currentIndex, mask.ElementAt(j).Value.Length);
                     }
                 }
 
