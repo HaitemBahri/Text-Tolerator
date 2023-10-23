@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace TextTolerator.Core.Rules.ReplacerRules;
+namespace TextTolerator.Core.Rules.RulesBases;
 
 public abstract class ReplacerRuleBase : IRule
 {
@@ -24,9 +24,9 @@ public abstract class ReplacerRuleBase : IRule
                     if (index == -1)
                         break;
 
-                    if ((ruleValue.Position.IsStart() && index == 0) ||
-                        (ruleValue.Position.IsMid() && (index > 0 && index < inputText.Length - 1)) ||
-                        (ruleValue.Position.IsEnd() && index == inputText.Length - 1))
+                    if (ruleValue.Position.IsStart() && index == 0 ||
+                        ruleValue.Position.IsMid() && index > 0 && index < inputText.Length - 1 ||
+                        ruleValue.Position.IsEnd() && index == inputText.Length - replaceFrom.Length)
                     {
                         mask.Add(index, new KeyValuePair<string, string>(replaceFrom, replaceBy));
                     }
@@ -47,7 +47,7 @@ public abstract class ReplacerRuleBase : IRule
 
             for (int j = numberOfCharsToBeReplaced - 1; j >= 0; j--)
             {
-                if (((i >> j) & 1) == 1)
+                if ((i >> j & 1) == 1)
                 {
                     int currentIndex = mask.ElementAt(j).Key;
 

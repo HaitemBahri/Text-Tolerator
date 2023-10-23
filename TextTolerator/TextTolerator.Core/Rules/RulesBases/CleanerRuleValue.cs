@@ -1,11 +1,11 @@
-﻿namespace TextTolerator.Core.Rules.CleanerRules
+﻿namespace TextTolerator.Core.Rules.RulesBases
 {
     public class CleanerRuleValue
     {
         public string ReplaceFrom { get; }
-        public CharPosition Position { get; }
+        public StringPosition Position { get; }
 
-        public CleanerRuleValue(string replaceFrom, CharPosition position)
+        public CleanerRuleValue(string replaceFrom, StringPosition position)
         {
             ReplaceFrom = replaceFrom;
             Position = position;

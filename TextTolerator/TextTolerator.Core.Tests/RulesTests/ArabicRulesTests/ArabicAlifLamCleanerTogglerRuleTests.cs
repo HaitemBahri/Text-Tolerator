@@ -3,27 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TextTolerator.Core.Rules.CleanerRules;
-using TextTolerator.Core.Rules.ReplacerRules;
+using TextTolerator.Core.Rules.ArabicRules;
 
-namespace TextTolerator.Core.Tests.RulesTests
+namespace TextTolerator.Core.Tests.RulesTests.ArabicRulesTests
 {
-    public class EnglishReplacerRuleTests
+    public class ArabicAlifLamCleanerTogglerRuleTests
     {
-        private EnglishReplacerRule _sut = new();
-
-        public EnglishReplacerRuleTests()
-        {
-
-        }
+        private ArabicAlifLamCleanerTogglerRule _sut = new();
 
         public static TheoryData<string, List<string>, string> ShouldReturnCorrectResultTheoryData => new()
         {
-            {"Localized", new List<string>(){ "Localized", "Localised" }, "(z) - Mid"},
-            {"Localised", new List<string>(){ "Localised", "Localized" }, "(s) - Mid"},
-
-            {"lOCALIZED", new List<string>(){ "lOCALIZED", "lOCALISED" }, "(Z) - Mid"},
-            {"lOCALISED", new List<string>(){ "lOCALISED", "lOCALIZED" }, "(S) - Mid"},
+            {"القلعة", new List<string>(){ "قلعة", "القلعة"}, "( ال ) - Starts With"},
+            {"سيارة", new List<string>(){ "السيارة", "سيارة"}, "( ال ) - Doen't Start With"},
         };
 
         [Theory]

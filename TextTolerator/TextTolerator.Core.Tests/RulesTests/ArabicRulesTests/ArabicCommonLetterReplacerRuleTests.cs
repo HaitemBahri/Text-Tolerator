@@ -1,18 +1,22 @@
-﻿using TextTolerator.Core.Results;
-using TextTolerator.Core.Rules.ReplacerRules;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TextTolerator.Core.Rules.ArabicRules;
 
-namespace TextTolerator.Core.Tests.RulesTests;
-
-public class ArabicReplacerRuleTests
+namespace TextTolerator.Core.Tests.RulesTests.ArabicRulesTests
 {
-    private ArabicReplacerRule _sut = new();
-
-    public ArabicReplacerRuleTests()
+    public class ArabicCommonLetterReplacerRuleTests
     {
+        private ArabicCommonLetterReplacerRule _sut = new();
 
-    }
+        public ArabicCommonLetterReplacerRuleTests()
+        {
 
-    public static TheoryData<string, List<string>, string> ShouldReturnCorrectResultTheoryData => new()
+        }
+
+        public static TheoryData<string, List<string>, string> ShouldReturnCorrectResultTheoryData => new()
     {
         {"أم", new List<string>(){ "أم", "ام" }, "(أ) - Start"},
         {"مأم", new List<string>(){ "مأم", "مام" }, "(أ) - Mid"},
@@ -35,16 +39,17 @@ public class ArabicReplacerRuleTests
 
     };
 
-    [Theory]
-    [MemberData(nameof(ShouldReturnCorrectResultTheoryData))]
-    public void ShouldReturnCorrectResult(string input, List<string> expectedResult, string testDataName)
-    {
-        var actualResult = _sut.ProcessText(input);
+        [Theory]
+        [MemberData(nameof(ShouldReturnCorrectResultTheoryData))]
+        public void ShouldReturnCorrectResult(string input, List<string> expectedResult, string testDataName)
+        {
+            var actualResult = _sut.ProcessText(input);
 
-        expectedResult.Sort();
-        actualResult.Sort();
+            expectedResult.Sort();
+            actualResult.Sort();
 
-        Assert.Equal(expectedResult, actualResult);
+            Assert.Equal(expectedResult, actualResult);
+        }
+
     }
-
 }

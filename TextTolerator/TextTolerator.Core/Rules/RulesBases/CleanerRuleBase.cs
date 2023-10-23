@@ -1,6 +1,4 @@
-﻿using TextTolerator.Core.Rules.ReplacerRules;
-
-namespace TextTolerator.Core.Rules.CleanerRules
+﻿namespace TextTolerator.Core.Rules.RulesBases
 {
     public abstract class CleanerRuleBase : IRule
     {
@@ -23,9 +21,9 @@ namespace TextTolerator.Core.Rules.CleanerRules
                         if (index == -1)
                             break;
 
-                        if ((ruleValue.Position.IsStart() && index == 0) ||
-                            (ruleValue.Position.IsMid() && (index > 0 && index < inputText.Length - 1)) ||
-                            (ruleValue.Position.IsEnd() && index == inputText.Length - 1))
+                        if (ruleValue.Position.IsStart() && index == 0 ||
+                            ruleValue.Position.IsMid() && index > 0 && index < inputText.Length - 1 ||
+                            ruleValue.Position.IsEnd() && index == inputText.Length - 1)
                         {
                             mask.Add(index, replaceFrom);
                         }
@@ -45,9 +43,9 @@ namespace TextTolerator.Core.Rules.CleanerRules
 
                 for (int j = numberOfCharsToBeReplaced - 1; j >= 0; j--)
                 {
-                    if (((i >> j) & 1) == 1)
+                    if ((i >> j & 1) == 1)
                     {
-                        int currentIndex = mask.ElementAt(j).Key;   
+                        int currentIndex = mask.ElementAt(j).Key;
 
                         currentResult = currentResult.Remove(currentIndex, mask.ElementAt(j).Value.Length);
                     }
