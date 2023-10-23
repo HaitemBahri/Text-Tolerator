@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Rules.CleanerRules;
-using TextTolerator.Core.Rules.ReplacerRules;
+﻿using TextTolerator.Core.Rules.PhoneNumberRules;
 
-namespace TextTolerator.Core.Tests.RulesTests
+namespace TextTolerator.Core.Tests.RulesTests.PhoneNumberRulesTests
 {
-    public class PhoneNumberReplacerRuleTests
+    public class PhoneNumberIntCodeReplacerRuleTests
     {
-        private PhoneNumberReplacerRule _sut = new();
+        private PhoneNumberIntCodeReplacerRule _sut = new();
 
-        public PhoneNumberReplacerRuleTests()
+        public PhoneNumberIntCodeReplacerRuleTests()
         {
 
         }
