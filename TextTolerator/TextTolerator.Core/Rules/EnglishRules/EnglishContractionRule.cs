@@ -1,7 +1,9 @@
-﻿using TextTolerator.Core.Rules.RulesBases;
+﻿using TextTolerator.Core.Attributes;
+using TextTolerator.Core.Rules.RulesBases;
 
 namespace TextTolerator.Core.Rules.EnglishRules
 {
+    [EnglishRule]
     public class EnglishContractionRule : IRule
     {
         protected List<ReplacerRuleValue> ReplacerRuleValues => new()

@@ -1,5 +1,8 @@
-﻿namespace TextTolerator.Core.Rules.WebsiteRules
+﻿using TextTolerator.Core.Attributes;
+
+namespace TextTolerator.Core.Rules.WebsiteRules
 {
+    [WebsiteRule]
     public class WebsiteWWWCleanerTogglerRule : IRule
     {
         private readonly string wwwTextLower = "www.";

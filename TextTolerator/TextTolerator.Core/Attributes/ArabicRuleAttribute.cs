@@ -1,6 +1,6 @@
 ﻿namespace TextTolerator.Core.Attributes
 {
-    public class ArabicRuleAttribute : TextToleratorRuleAttribute
+    public class ArabicRuleAttribute : RuleAttribute
     {
 
     }

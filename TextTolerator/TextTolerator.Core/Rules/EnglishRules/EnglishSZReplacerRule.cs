@@ -2,6 +2,7 @@
 
 namespace TextTolerator.Core.Rules.EnglishRules
 {
+    [EnglishRule]
     public class EnglishSZReplacerRule : IRule
     {
         protected List<ReplacerRuleValue> ReplacerRuleValues => new()

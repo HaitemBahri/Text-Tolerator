@@ -1,6 +1,6 @@
 ﻿namespace TextTolerator.Core.Attributes
 {
-    public class PhoneNumberRuleAttribute : TextToleratorRuleAttribute
+    public class PhoneNumberRuleAttribute : RuleAttribute
     {
 
     }

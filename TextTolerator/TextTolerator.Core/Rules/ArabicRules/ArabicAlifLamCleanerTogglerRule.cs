@@ -1,7 +1,9 @@
-﻿using TextTolerator.Core.Rules.RulesBases;
+﻿using TextTolerator.Core.Attributes;
+using TextTolerator.Core.Rules.RulesBases;
 
 namespace TextTolerator.Core.Rules.ArabicRules
 {
+    [ArabicRule]
     public class ArabicAlifLamCleanerTogglerRule : IRule
     {
         protected List<CleanerTogglerRuleValue> CleanerTogglerRuleValues => new()

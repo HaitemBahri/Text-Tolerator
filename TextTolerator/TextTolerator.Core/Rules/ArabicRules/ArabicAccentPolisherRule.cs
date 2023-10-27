@@ -1,7 +1,9 @@
-﻿using TextTolerator.Core.Rules.RulesBases;
+﻿using TextTolerator.Core.Attributes;
+using TextTolerator.Core.Rules.RulesBases;
 
 namespace TextTolerator.Core.Rules.ArabicRules
 {
+    [ArabicRule]
     public class ArabicAccentPolisherRule : IRule
     {
         private readonly List<PolisherRuleValue> PolisherRuleValues = new List<PolisherRuleValue>()

@@ -1,7 +1,9 @@
-﻿using TextTolerator.Core.Rules.RulesBases;
+﻿using TextTolerator.Core.Attributes;
+using TextTolerator.Core.Rules.RulesBases;
 
 namespace TextTolerator.Core.Rules.PhoneNumberRules
 {
+    [PhoneNumberRule]
     public class PhoneNumberSeparatorCleanerRule : IRule
     {
         protected List<CleanerRuleValue> CleanerRuleValues => new()

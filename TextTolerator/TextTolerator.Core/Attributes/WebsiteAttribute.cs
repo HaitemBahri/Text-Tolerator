@@ -1,9 +1,7 @@
 ﻿namespace TextTolerator.Core.Attributes
 {
-    public class EnglishRuleAttribute : RuleAttribute
+    public class WebsiteRuleAttribute : RuleAttribute
     {
 
     }
-
-
 }

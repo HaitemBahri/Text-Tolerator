@@ -1,5 +1,10 @@
-﻿namespace TextTolerator.Core.Rules.RulesBases
+﻿using TextTolerator.Core.Attributes;
+
+namespace TextTolerator.Core.Rules.RulesBases
 {
+    [EnglishRule]
+    [EmailAddressRule]
+    [WebsiteRule]
     public class CaserRuleBase : IRule
     {
         public List<string> ProcessText(string inputText)
