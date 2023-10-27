@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Rules.RulesBases;
-
-namespace TextTolerator.Core.Rules.WebsiteRules
+﻿namespace TextTolerator.Core.Rules.WebsiteRules
 {
     public class WebsiteWWWCleanerTogglerRule : IRule
     {
@@ -40,7 +33,7 @@ namespace TextTolerator.Core.Rules.WebsiteRules
 
         private string GetCorrectWWW(string inputText)
         {
-            if(inputText.All(c => char.IsUpper(c) || !char.IsLetter(c)))
+            if (inputText.All(c => char.IsUpper(c) || !char.IsLetter(c)))
             {
                 return WWWTextUpper;
             }

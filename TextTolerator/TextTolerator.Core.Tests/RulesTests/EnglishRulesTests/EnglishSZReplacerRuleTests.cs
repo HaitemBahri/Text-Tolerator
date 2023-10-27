@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Rules.EnglishRules;
+﻿using TextTolerator.Core.Rules.EnglishRules;
 
 namespace TextTolerator.Core.Tests.RulesTests.EnglishRulesTests
 {
@@ -21,7 +16,7 @@ namespace TextTolerator.Core.Tests.RulesTests.EnglishRulesTests
 
             {"Localize", new List<string>(){ "Localize", "Localise" }, "(z) - End"},
             {"Localise", new List<string>(){ "Localise", "Localize" }, "(s) - End"},
-                                                                              
+
             {"lOCALIZE", new List<string>(){ "lOCALIZE", "lOCALISE" }, "(Z) - End"},
             {"lOCALISE", new List<string>(){ "lOCALISE", "lOCALIZE" }, "(S) - End"},
 

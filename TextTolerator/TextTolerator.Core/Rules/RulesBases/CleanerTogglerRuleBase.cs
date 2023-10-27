@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextTolerator.Core.Rules.RulesBases
+﻿namespace TextTolerator.Core.Rules.RulesBases
 {
-    public abstract class CleanerTogglerRuleBase : IRule
+    public class CleanerTogglerRuleBase
     {
-        protected abstract List<CleanerTogglerRuleValue> CleanerTogglerRuleValues { get; }
-
-        public List<string> ProcessText(string inputText)
+        public List<string> ProcessText(string inputText, List<CleanerTogglerRuleValue> ruleValues)
         {
             List<string> initialResults = new() { inputText };
 
-            foreach (var ruleValue in CleanerTogglerRuleValues)
+            foreach (var ruleValue in ruleValues)
             {
                 string replaceFrom = ruleValue.ReplaceFrom;
 
@@ -48,5 +40,6 @@ namespace TextTolerator.Core.Rules.RulesBases
 
             return initialResults;
         }
+
     }
 }

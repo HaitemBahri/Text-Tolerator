@@ -1,16 +1,12 @@
-﻿using System.Text.RegularExpressions;
+﻿namespace TextTolerator.Core.Rules.RulesBases;
 
-namespace TextTolerator.Core.Rules.RulesBases;
-
-public abstract class ReplacerRuleBase : IRule
+public class ReplacerRuleBase
 {
-    protected abstract List<ReplacerRuleValue> ReplacerRuleValues { get; }
-
-    public List<string> ProcessText(string inputText)
+    public List<string> ProcessText(string inputText, List<ReplacerRuleValue> ruleValues)
     {
         SortedDictionary<int, KeyValuePair<string, string>> mask = new();
 
-        foreach (var ruleValue in ReplacerRuleValues)
+        foreach (var ruleValue in ruleValues)
         {
             string replaceFrom = ruleValue.ReplaceFrom;
             string replaceBy = ruleValue.ReplaceBy;
@@ -61,4 +57,6 @@ public abstract class ReplacerRuleBase : IRule
 
         return initialResults;
     }
+
+
 }

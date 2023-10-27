@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Rules.RulesBases;
+﻿using TextTolerator.Core.Rules.RulesBases;
 
 namespace TextTolerator.Core.Rules.EnglishRules
 {
-    public class EnglishContractionRule : ReplacerRuleBase
+    public class EnglishContractionRule : IRule
     {
-        protected override List<ReplacerRuleValue> ReplacerRuleValues => new()
+        protected List<ReplacerRuleValue> ReplacerRuleValues => new()
         {
             new ReplacerRuleValue("n't", " not", StringPosition.Mid | StringPosition.End),
             new ReplacerRuleValue(" not ", "n't ", StringPosition.Mid | StringPosition.End),
@@ -20,5 +15,12 @@ namespace TextTolerator.Core.Rules.EnglishRules
             new ReplacerRuleValue("'ve", " have", StringPosition.Mid | StringPosition.End),
             new ReplacerRuleValue(" have ", "'ve ", StringPosition.Mid | StringPosition.End),
         };
+
+        public List<string> ProcessText(string inputText)
+        {
+            var replacerRuleBase = new ReplacerRuleBase();
+
+            return replacerRuleBase.ProcessText(inputText, ReplacerRuleValues);
+        }
     }
 }

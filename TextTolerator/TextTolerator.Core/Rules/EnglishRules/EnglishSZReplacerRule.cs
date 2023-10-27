@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Rules.RulesBases;
+﻿using TextTolerator.Core.Rules.RulesBases;
 
 namespace TextTolerator.Core.Rules.EnglishRules
 {
-    public class EnglishSZReplacerRule : ReplacerRuleBase
+    public class EnglishSZReplacerRule : IRule
     {
-        protected override List<ReplacerRuleValue> ReplacerRuleValues => new()
+        protected List<ReplacerRuleValue> ReplacerRuleValues => new()
         {
             new ReplacerRuleValue("ise", "ize", StringPosition.Mid | StringPosition.End),
             new ReplacerRuleValue("ize", "ise", StringPosition.Mid | StringPosition.End),
@@ -23,5 +18,12 @@ namespace TextTolerator.Core.Rules.EnglishRules
             new ReplacerRuleValue("YSE", "YZE", StringPosition.Mid | StringPosition.End),
             new ReplacerRuleValue("YZE", "YSE", StringPosition.Mid | StringPosition.End),
         };
+
+        public List<string> ProcessText(string inputText)
+        {
+            var replacerRuleBase = new ReplacerRuleBase();
+
+            return replacerRuleBase.ProcessText(inputText, ReplacerRuleValues);
+        }
     }
 }

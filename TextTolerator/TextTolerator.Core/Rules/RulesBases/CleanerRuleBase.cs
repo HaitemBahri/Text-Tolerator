@@ -1,14 +1,12 @@
 ﻿namespace TextTolerator.Core.Rules.RulesBases
 {
-    public abstract class CleanerRuleBase : IRule
+    public class CleanerRuleBase
     {
-        protected abstract List<CleanerRuleValue> CleanerRuleValues { get; }
-
-        public List<string> ProcessText(string inputText)
+        public List<string> ProcessText(string inputText, List<CleanerRuleValue> ruleValues)
         {
             SortedDictionary<int, string> mask = new();
 
-            foreach (var ruleValue in CleanerRuleValues)
+            foreach (var ruleValue in ruleValues)
             {
                 string replaceFrom = ruleValue.ReplaceFrom;
 
@@ -56,5 +54,6 @@
 
             return initialResults;
         }
+
     }
 }

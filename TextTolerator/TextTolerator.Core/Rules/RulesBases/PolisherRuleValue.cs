@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextTolerator.Core.Rules.RulesBases
+﻿namespace TextTolerator.Core.Rules.RulesBases
 {
     public class PolisherRuleValue
     {

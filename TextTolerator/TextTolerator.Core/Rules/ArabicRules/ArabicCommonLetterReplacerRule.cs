@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Rules.RulesBases;
+﻿using TextTolerator.Core.Rules.RulesBases;
 
 namespace TextTolerator.Core.Rules.ArabicRules
 {
-    public class ArabicCommonLetterReplacerRule : ReplacerRuleBase
+    public class ArabicCommonLetterReplacerRule : IRule
     {
-        protected override List<ReplacerRuleValue> ReplacerRuleValues =>
+        protected List<ReplacerRuleValue> ReplacerRuleValues =>
             new List<ReplacerRuleValue>()
             {
                 new ReplacerRuleValue("أ", "ا", StringPosition.Start | StringPosition.Mid | StringPosition.End),
@@ -33,5 +28,12 @@ namespace TextTolerator.Core.Rules.ArabicRules
                 new ReplacerRuleValue("ى", "ي", StringPosition.End),
                 new ReplacerRuleValue("ي", "ى", StringPosition.End),
             };
+
+        public List<string> ProcessText(string inputText)
+        {
+            var replacerRuleBase = new ReplacerRuleBase();
+
+            return replacerRuleBase.ProcessText(inputText, ReplacerRuleValues);
+        }
     }
 }

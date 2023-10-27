@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextTolerator.Core.Rules.RulesBases
+﻿namespace TextTolerator.Core.Rules.RulesBases
 {
-    public abstract class PolisherRuleBase : IRule
+    public class PolisherRuleBase
     {
-        protected abstract List<PolisherRuleValue> PolisherRuleValues { get; }
-
-        public List<string> ProcessText(string inputText)
+        public List<string> ProcessText(string inputText, List<PolisherRuleValue> ruleValues)
         {
             string currentResult = new(inputText);
 
-            foreach (var ruleValue in PolisherRuleValues)
+            foreach (var ruleValue in ruleValues)
             {
                 string replaceFrom = ruleValue.ReplaceFrom;
 

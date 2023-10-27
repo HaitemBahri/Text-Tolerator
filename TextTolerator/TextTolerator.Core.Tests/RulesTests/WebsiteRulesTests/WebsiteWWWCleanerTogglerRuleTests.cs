@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Rules.WebsiteRules;
+﻿using TextTolerator.Core.Rules.WebsiteRules;
 
 namespace TextTolerator.Core.Tests.RulesTests.WebsiteRulesTests
 {

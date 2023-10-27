@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextTolerator.Core.Rules.RulesBases;
+﻿using TextTolerator.Core.Rules.RulesBases;
 
 namespace TextTolerator.Core.Rules.ArabicRules
 {
-    public class ArabicAlifLamCleanerTogglerRule : CleanerTogglerRuleBase
+    public class ArabicAlifLamCleanerTogglerRule : IRule
     {
-        protected override List<CleanerTogglerRuleValue> CleanerTogglerRuleValues => new()
+        protected List<CleanerTogglerRuleValue> CleanerTogglerRuleValues => new()
         {
             new CleanerTogglerRuleValue("ال", StringPosition.Start),
         };
+
+        public List<string> ProcessText(string inputText)
+        {
+            var cleanerTogglerRule = new CleanerTogglerRuleBase();
+
+            return cleanerTogglerRule.ProcessText(inputText, CleanerTogglerRuleValues);
+        }
     }
 }
