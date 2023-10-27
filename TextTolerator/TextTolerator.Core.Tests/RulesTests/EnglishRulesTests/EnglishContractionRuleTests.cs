@@ -8,6 +8,9 @@ namespace TextTolerator.Core.Tests.RulesTests.EnglishRulesTests
 
         public static TheoryData<string, List<string>, string> ShouldReturnCorrectResultTheoryData => new()
         {
+            {"can't", new List<string>(){ "cannot", "can't"}, "Special case"},
+            {"cannot", new List<string>(){ "can't", "cannot"}, "Special case"},
+
             {"don't", new List<string>(){ "do not", "don't" }, "(n't)"},
             {"does not ", new List<string>(){ "doesn't ", "does not " }, "(not)"},
 

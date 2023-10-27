@@ -16,9 +16,19 @@ namespace TextTolerator.Core.Rules.EnglishRules
             new ReplacerRuleValue(" have ", "'ve ", StringPosition.Mid | StringPosition.End),
         };
 
+        protected List<ReplacerRuleValue> SpecialReplacerRuleValues => new()
+        {
+            new ReplacerRuleValue("cannot", "can't", StringPosition.Mid | StringPosition.End),
+            new ReplacerRuleValue("can't", "cannot", StringPosition.Mid | StringPosition.End),
+        };
         public List<string> ProcessText(string inputText)
         {
             var replacerRuleBase = new ReplacerRuleBase();
+
+            if(SpecialReplacerRuleValues.Any(x => inputText.Contains(x.ReplaceFrom)))
+            {
+                return replacerRuleBase.ProcessText(inputText, SpecialReplacerRuleValues);
+            }
 
             return replacerRuleBase.ProcessText(inputText, ReplacerRuleValues);
         }
