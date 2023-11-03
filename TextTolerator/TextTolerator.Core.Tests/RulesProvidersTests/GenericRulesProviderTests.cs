@@ -35,7 +35,7 @@ namespace TextTolerator.Core.Tests.RulesProvidersTests
             {new GenericRulesProvider<PhoneNumberRuleAttribute>(), new List<IRule>() {
                 new PhoneNumberBracketsPolisherRule(),
                 new PhoneNumberIntCodeReplacerRule(),
-                new PhoneNumberSeparatorCleanerRule(),
+                new PhoneNumberSeparatorPolisherRule(),
             }, "PhoneNumber Rules" },
 
             {new GenericRulesProvider<WebsiteRuleAttribute>(), new List<IRule>() {
@@ -47,7 +47,7 @@ namespace TextTolerator.Core.Tests.RulesProvidersTests
 
         [Theory]
         [MemberData(nameof(ShouldReturnCorrectRulesTheoryData))]
-        public void ShouldReturnCorrectRules<T>(IRulesProvider _sut, IEnumerable<IRule> expectedResult, string testDataName)
+        public void ShouldReturnCorrectRules(IRulesProvider _sut, IEnumerable<IRule> expectedResult, string testDataName)
         {
             IEnumerable<IRule> actualResult = _sut.GetRules();
 
