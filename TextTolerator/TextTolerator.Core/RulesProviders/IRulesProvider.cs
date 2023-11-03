@@ -1,8 +1,8 @@
 ﻿using TextTolerator.Core.Rules;
 
-namespace TextTolerator.Core.RuleProviders
+namespace TextTolerator.Core.RulesProviders
 {
-    public interface IRuleProvider
+    public interface IRulesProvider
     {
         IEnumerable<IRule> GetRules();
     }

@@ -1,13 +1,13 @@
 ﻿using TextTolerator.Core.Results;
-using TextTolerator.Core.RuleProviders;
+using TextTolerator.Core.RulesProviders;
 
 namespace TextTolerator.Core.TextTolerators
 {
     public class TextTolerator : ITextTolerator
     {
-        private readonly IRuleProvider _textToleratorRuleProvider;
+        private readonly IRulesProvider _textToleratorRuleProvider;
 
-        public TextTolerator(IRuleProvider textToleratorRuleProvider)
+        public TextTolerator(IRulesProvider textToleratorRuleProvider)
         {
             _textToleratorRuleProvider = textToleratorRuleProvider;
         }
