@@ -3,7 +3,7 @@
 namespace TextTolerator.Core.Rules.WebsiteRules
 {
     [WebsiteRule]
-    public class WebsiteHttpCleanerTogglerRule : IRule
+    public class Website2HttpCleanerTogglerRule : IRule
     {
         private readonly string HttpTextLower = "https://";
         private readonly string HttpTextUpper = "HTTPS://";

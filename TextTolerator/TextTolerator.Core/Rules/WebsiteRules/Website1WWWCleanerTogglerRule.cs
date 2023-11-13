@@ -3,7 +3,7 @@
 namespace TextTolerator.Core.Rules.WebsiteRules
 {
     [WebsiteRule]
-    public class WebsiteWWWCleanerTogglerRule : IRule
+    public class Website1WWWCleanerTogglerRule : IRule
     {
         private readonly string wwwTextLower = "www.";
         private readonly string WWWTextUpper = "WWW.";

@@ -4,7 +4,7 @@ namespace TextTolerator.Core.Tests.RulesTests.WebsiteRulesTests
 {
     public class WebsiteHttpCleanerTogglerRuleTests
     {
-        private WebsiteHttpCleanerTogglerRule _sut = new();
+        private Website2HttpCleanerTogglerRule _sut = new();
 
         public static TheoryData<string, List<string>, string> ShouldReturnCorrectResultTheoryData => new()
         {
