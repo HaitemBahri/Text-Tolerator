@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TextTolerator.Core.Results;
 
-namespace TextTolerator.Core.TextTolerators
+namespace TextTolerator.Core.TextToleratorEngines
 {
-    public interface ITextTolerator
+    public interface ITextToleratorEngine
     {
         public List<string> GetTextToleratorResult(string originalText);
     }
