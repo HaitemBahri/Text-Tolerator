@@ -14,13 +14,13 @@ Some text words, although different, are considered the same by users and often 
 One case where this might create an issue is with search tools. In an application where users can search for data stored earlier, the exact spelling must be provided in order for the application to lookup the required data. If a different variation in text is used in either the stored text or the supplied search text, the search inquiry will fail, ending up with 0 results. 
 
 This problem is more frequent in some languages than others. For example in Arabic some letters are used interchangeably as if they are the same. Some examples of similar letters are:
-- ( **ة** ) Ta'a Marbuta
-- ( **ه** ) Ha'a
+- Ta'a Marbuta ( **ة** ) 
+- Ha'a ( **ه** ) 
 
 Another example:
-- ( **أ** ) Alif w/ humza on top
-- ( **ا** ) Alif
-- ( **إ** ) Alif w/ humza underneath
+- Alif w/ humza on top ( **أ** ) 
+- Alif ( **ا** ) 
+- Alif w/ humza underneath ( **إ** ) 
 
 Although these letter might be considered similar because of shape or pronunciation, there have different unicode values and thus are treated differently by digital devices.
 
