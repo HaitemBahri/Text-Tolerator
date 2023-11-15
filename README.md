@@ -2,11 +2,11 @@
 A simple .NET library that creates a tolerated list of words or phrases that are considered similar to  the original text with the aim to ease text comparison in any .NET application.
 
 Examples:
-| **Input** |  | Output |  |  |  |  |  |
-| :- | - | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **مدرسة** | | مدرسة | المدرسة | مدرسه | المدرسه |  |  |
-| **00447988 990011** | | 00447988 990011 | +447988 990011 | 00447988990011 | +447988990011|  |  |
-| **localize** | | localize | Localize | LOCALIZE | localise | Localise | LOCALISE | 
+| **Input** |  Output  |  |  |  |  |  |
+| :- | :-: | :-: | :-: | :-: | :-: | :-: | 
+| **مدرسة** | مدرسة | المدرسة | مدرسه | المدرسه |  |  |
+| **00447988 990011** | 00447988 990011 | +447988 990011 | 00447988990011 | +447988990011|  |  |
+| **localize** | localize | Localize | LOCALIZE | localise | Localise | LOCALISE | 
 
 ## The Problem
 Some text words, although different, are considered the same by users and often used interchangeably. This creates a problem for users of some applications that involves text input when users use words interchangeably thinking that they are the same while applications treat them as being different words.
