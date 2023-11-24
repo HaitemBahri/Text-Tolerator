@@ -4,6 +4,22 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>TextTolerator</Title>
+    <PackageProjectUrl>https://github.com/HaitemBahri/Text-Tolerator</PackageProjectUrl>
+    <Copyright>2023</Copyright>
+    <Description>A simple .NET library that creates a tolerated list of words or phrases that are considered similar to the original text with the aim to ease text comparison in any .NET application.</Description>
+    <RepositoryUrl>https://github.com/HaitemBahri/Text-Tolerator</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>TextTolerator; Text; Arabic; Phone Number; Website; English; Tolerator; Search;</PackageTags>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <FileVersion>0.1.0</FileVersion>
+    <Version>0.1.0</Version>
+    <Company></Company>
+    <Authors>HaitemBahri</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageId>HaitemBahri.$(Title)</PackageId>
+    <Product>$(Title)</Product>
   </PropertyGroup>
 
 </Project>
