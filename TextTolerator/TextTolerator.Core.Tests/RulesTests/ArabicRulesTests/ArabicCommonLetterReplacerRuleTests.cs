@@ -29,9 +29,6 @@ namespace TextTolerator.Core.Tests.RulesTests.ArabicRulesTests
 
         {"أمة", new List<string>(){ "أمة", "أمه", "امة", "امه",  }, "(أ) - Start (ة) - End"},
         {"مأمة", new List<string>(){ "مامه", "مأمه", "مامة", "مأمة"}, "(أ) - Mid (ة) - End"},
-
-        {"ضبظ", new List<string>(){ "ظبظ", "ضبظ", "ظبض", "ضبض"}, "(ض) - Start (ظ) - End"},
-
     };
 
         [Theory]

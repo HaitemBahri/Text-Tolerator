@@ -39,8 +39,8 @@ namespace TextTolerator.Core.Tests.RulesProvidersTests
             }, "PhoneNumber Rules" },
 
             {new GenericRulesProvider<WebsiteRuleAttribute>(), new List<IRule>() {
-                new Website2HttpCleanerTogglerRule(),
                 new Website1WWWCleanerTogglerRule(),
+                new Website2HttpCleanerTogglerRule(),
                 new CaserRuleBase(),
             }, "Website Rules" },
         };
