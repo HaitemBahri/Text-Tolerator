@@ -47,7 +47,7 @@ There are two main IRulesProviders class that can be used:
 
 1. ```GenericRulesProvider``` which loads all the IRule classes that adheres to a certain attribute, 
 
-```
+```CSharp
     //Loads all IRule classes with ArabicRuleAttribute
     var arabicRulesProvider = new GenericRulesProvider<ArabicRuleAttribute>();
 
@@ -60,7 +60,7 @@ There are two main IRulesProviders class that can be used:
 
 2. ```FixedRulesProvider``` which loads only IRule classes specified at instantiation,
 
-```
+```Csharp
     //Loads only the specified IRule classes. ArabicAccentPolisherRule class in this case
     var fixedRulesProvider = new FixedRulesProvider(new ArabicAccentPolisherRule());
 
