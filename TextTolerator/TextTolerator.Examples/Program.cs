@@ -39,7 +39,7 @@ internal class Program
         var textToleratorEngine = new TextToleratorEngine(fixedRulesProvider);
 
         //Producing the tolerated list of words
-        string input = "الإمكَانِياتْ";
+        string input = "google.com";
 
         //Producing the tolerated list of words
         List<string> output = textToleratorEngine.GetTextToleratorResult(input);
