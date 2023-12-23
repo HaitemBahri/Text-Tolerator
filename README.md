@@ -71,4 +71,61 @@ There are two main IRulesProviders class that can be used:
 
 3. Other customer IRuleProvider classes with custom way of loading IRule classes can be added by implementing IRuleProvider interface.
 
+## Examples
 
+### Example 1:
+
+```CSharp
+    //Creating an IRuleProvider that loads all Arabic IRule classes, 
+    //i.e all IRule classes with ArabicRuleAttribute
+    var arabicRulesProvider = new GenericRulesProvider<ArabicRuleAttribute>();
+
+    //Creating the TextToleratorEngine with the Arabic IRulesProvider
+    var textToleratorEngine = new TextToleratorEngine(arabicRulesProvider);
+
+    //Setting the example input
+    string input = "الإمكانيات";
+
+    //Producing the tolerated list of words
+    List<string> output = textToleratorEngine.GetTextToleratorResult(input);
+
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
+    Console.WriteLine(String.Join(", ", output));
+```
+
+**Output**
+```
+الإمكانيات, إمكانيات, الامكانيات, امكانيات
+```
+
+### Example 2:
+```Csharp
+    //Creating an IRuleProvider that loads 2 specific IRule classes
+    var fixedRulesProvider = new FixedRulesProvider(new Website1WWWCleanerTogglerRule(), new Website2HttpCleanerTogglerRule());
+
+    //Creating the TextToleratorEngine with the fixed IRulesProvider
+    var textToleratorEngine = new TextToleratorEngine(fixedRulesProvider);
+
+    //Producing the tolerated list of words
+    string input = "google.com";
+
+    //Producing the tolerated list of words
+    List<string> output = textToleratorEngine.GetTextToleratorResult(input);
+
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
+    Console.WriteLine(String.Join(", ", output));
+```
+
+**Output**
+```
+google.com, www.google.com, https://google.com, https://www.google.com
+```
+
+
+## **Support:**
+
+In case you have something to discuss, please use the [Discussion](https://github.com/HaitemBahri/Text-Tolerator/discussions) section. Alternatively, You can contact me directly at haitem_bahri@yahoo.com. All types of feedback are welcome.
+
+## **License**
+
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
