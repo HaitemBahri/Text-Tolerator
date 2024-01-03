@@ -1,6 +1,28 @@
 # Text-Tolerator
 A simple .NET library that creates a tolerated list of words or phrases that are considered similar to  the original text with the aim to ease text comparison in any .NET application.
 
+## **Getting Started:**
+
+This library has no requirement. 
+
+This library can be installed as a NuGet package or manually downloaded from the release section and added to projects.
+
+- #### Using NuGet package manager:
+
+  You can install the package from nuget by searching '**HaitemBahri.TextTolerator**' on the NuGet Package Manager or by running the following command on the CLI:
+  ```
+  dotnet add package HaitemBahri.TextTolerator --version 0.1.0
+  ```
+
+  Or using the Package Manager Console:
+  ```
+  NuGet\Install-Package HaitemBahri.TextTolerator -Version 0.1.0
+  ```
+
+- #### Installing manually:
+
+  Download the built dll file from [Releases](https://github.com/HaitemBahri/Text-Tolerator/releases) and manually add it to your project.
+
 ## The Problem
 Some text words, although different, are considered the same by users and often used interchangeably. This creates a problem for users of some applications that involves text input when users use words interchangeably thinking that they are the same while applications treat them as being different words.
 
